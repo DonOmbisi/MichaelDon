@@ -1,0 +1,212 @@
+@custom-media --mediaDesktop (max-width: 2080px);
+@custom-media --mediaLaptop (max-width: 1680px);
+@custom-media --mediaTablet (max-width: 1040px);
+@custom-media --mediaMobile (max-width: 696px);
+@custom-media --mediaMobileLS (max-height: 696px);
+@custom-media --mediaMobileS (max-width: 400px);
+@custom-media --mediaMobileXS (max-width: 320px);
+@custom-media --mediaMobileLandscape (max-width: 896px) and (max-height: 500px);
+@custom-media --mediaHighDPI (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi);
+@custom-media --mediaLowData (prefers-reduced-data: reduce);
+@custom-media --mediaHighContrast (prefers-contrast: high);
+@custom-media --mediaPrint (print);
+@custom-media --mediaUseMotion (prefers-reduced-motion: no-preference);
+@custom-media --mediaReduceMotion (prefers-reduced-motion: reduce);
+@custom-media --mediaTouch (pointer: coarse);
+@custom-media --mediaNoTouch (pointer: fine);
+
+@layer base {
+  :global(:root) {
+    --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
+  }
+
+  :global(html, body) {
+    font-family: var(--fontStack);
+    font-weight: var(--fontWeightRegular);
+    background-color: var(--background);
+    transition: var(--durationM) ease;
+    transition-property: background, opacity;
+    color: var(--textBody);
+    width: 100vw;
+    overflow-x: hidden;
+    opacity: 1;
+    /* Performance optimizations */
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  /* Mobile-specific optimizations */
+  @media (--mediaMobile) {
+    :global(html, body) {
+      font-size: 14px; /* Slightly smaller base font for mobile */
+      line-height: 1.5;
+    }
+  }
+
+  @media (--mediaMobileS) {
+    :global(html, body) {
+      font-size: 13px; /* Even smaller for very small screens */
+    }
+  }
+
+  /* Touch-friendly optimizations */
+  @media (--mediaTouch) {
+    :global(html, body) {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  }
+
+  /* High DPI optimizations */
+  @media (--mediaHighDPI) {
+    :global(html, body) {
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+  }
+
+  /* Reduced motion for accessibility */
+  @media (--mediaReduceMotion) {
+    :global(html, body) {
+      transition: none;
+    }
+  }
+
+  :global(:where(code, pre)) {
+    font-family: var(--monoFontStack);
+  }
+
+  :global(::selection) {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  :global(:focus) {
+    outline: 4px solid var(--text);
+    outline-offset: 4px;
+  }
+
+  :global(:focus:not(:focus-visible)) {
+    outline: none;
+  }
+
+  /* Mobile-friendly focus styles */
+  @media (--mediaMobile) {
+    :global(:focus) {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Touch-friendly button and link styles */
+  :global(button, a, [role="button"]) {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+
+  @media (--mediaMobile) {
+    :global(button, a, [role="button"]) {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+
+  /* Optimize images for mobile */
+  :global(img) {
+    max-width: 100%;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  /* Smooth scrolling for mobile */
+  @media (--mediaUseMotion) {
+    :global(html) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Optimize for low data usage */
+  @media (--mediaLowData) {
+    :global(img, video) {
+      display: none;
+    }
+  }
+
+  /* Critical CSS optimizations */
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(*::before, *::after) {
+    box-sizing: border-box;
+  }
+
+  /* Optimize animations for mobile */
+  @media (--mediaMobile) {
+    :global(*) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Print optimizations */
+  @media (--mediaPrint) {
+    :global(*) {
+      background: transparent !important;
+      color: black !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (--mediaHighContrast) {
+    :global(*) {
+      border: 1px solid currentColor !important;
+    }
+  }
+
+  @keyframes :global(fade-in) {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes :global(reveal) {
+    0% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: left;
+    }
+
+    50% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+
+    51% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: right;
+    }
+
+    100% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: right;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.aura3 {
+  /* Add any specific styles for the Aura3.0 project page */
+}
+
+.aura3 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aura3 li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.aura3 li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.aura3 strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}

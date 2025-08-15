@@ -1,0 +1,151 @@
+.mainProject {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.projectCard {
+  background: var(--color-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.projectImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.projectContent {
+  padding: 32px;
+}
+
+.projectMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category {
+  background: var(--color-primary);
+  color: var(--color-background);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.projectNumber {
+  color: var(--color-text);
+  opacity: 0.6;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.projectTitle {
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+
+.projectDescription {
+  margin-bottom: 24px;
+  line-height: 1.6;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.projectActions {
+  display: flex;
+  gap: 12px;
+}
+
+.viewButton {
+  flex: 1;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 60px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footerText {
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 696px) {
+  .mainProject {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .projectContent {
+    padding: 24px;
+  }
+
+  .projectMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainProject {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .projectContent {
+    padding: 20px;
+  }
+
+  .projectActions {
+    flex-direction: column;
+  }
+}

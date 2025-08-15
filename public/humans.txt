@@ -1,0 +1,46 @@
+__  __  __
+\ \ \ \ \/
+ \ \/\ \
+  \/  \/
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+DEVELOPER | デベロッパー
+
+Don Michael Ombisi
+Full Stack Developer & Data Analyst
+
+Development tools:
+React.js
+Node.js
+Python
+TensorFlow
+Docker
+AWS
+
+github.com/DonOmbisi
+linkedin.com/in/don-michael-64423b276
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+React
+Remix
+Three.js
+Framer Motion
+Python
+TensorFlow
+Node.js
+Docker
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8
