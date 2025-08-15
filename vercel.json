@@ -6,7 +6,25 @@
   "devCommand": "npm run dev",
   "headers": [
     {
-      "source": "/(icon-.*\\.png|favicon\\.(ico|svg))",
+      "source": "/icon-*.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon.svg",
       "headers": [
         {
           "key": "Cache-Control",
